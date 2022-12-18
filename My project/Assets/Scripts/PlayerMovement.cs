@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    private float moveSpeed;
-    public float walkSpeed;
-    public float sprintSpeed;
+    public float moveSpeed;
+//    public float walkSpeed;
+  //  public float sprintSpeed;
 
     public float groundDrag;
 
@@ -37,13 +37,13 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
-    public MovementState state;
+  /**  public MovementState state;
     public enum MovementState
     {
         walking,
         sprinting,
         air
-    } 
+    } **/ 
 
 
 
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
-    private void StateHandler()
+   /** private void StateHandler()
     {
         // Mode - Sprinting
         if(grounded && Input.GetKey(sprintKey)){
@@ -93,8 +93,9 @@ public class PlayerMovement : MonoBehaviour
         else if (grounded)
         {
             state = MovementState.walking;
+            moveSpeed = walkSpeed;
         }
-    }
+    }**/
     public void MovePlayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
